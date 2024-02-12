@@ -1,0 +1,43 @@
+﻿<Window x:Class="MonitorElectricTest.Views.Dialogs.ConfirmDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MonitorElectricTest.Views.Dialogs" 
+        xmlns:viewmodels="clr-namespace:MonitorElectricTest.ViewModels"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        SizeToContent="WidthAndHeight"
+        Title="{Binding Title}" 
+        Height="450" Width="450"
+        MaxWidth="500"
+        IsVisibleChanged="_OnShown"
+        >
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Style="{StaticResource border}">
+            <TextBlock 
+                Text="{Binding Text}"
+                FontSize="18"
+                Foreground="OrangeRed"
+                HorizontalAlignment="Center"
+                TextWrapping="Wrap"
+                />
+        </Border>
+
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Button Content="Да" Click="_OnConfirm" />
+                <Button Content="Нет" Click="_OnReject" Name="noButton" />
+            </StackPanel>
+        </StackPanel>
+        
+    </Grid>
+
+</Window>
